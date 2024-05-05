@@ -14,6 +14,7 @@ namespace UPC.APIBusiness.DBEntity.Model
         public DateTime Fecha_Inicio { get; set; }
         public DateTime Fecha_Fin { get; set; }
         public string Descuento { get; set; }
-        public int CapacidadActualEvento { get; set; }
+        public string Categoria { get; set; }
+        public double Precio_Original { get; set; }
     }
 }

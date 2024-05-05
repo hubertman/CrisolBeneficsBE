@@ -123,6 +123,7 @@ namespace API
             //services.AddTransient<IUserRepository, UserRepository>();
             //services.AddTransient<IProjectRepository, ProjectRepository>();
             services.AddTransient<IEventoRepository, EventoRepository>();
+            services.AddTransient<IOfertaRepository, OfertaRepository>();
 
             // ----------------------------------------------------------------
             services.AddTransient<HttpClientAuthorizationDelegatingHandler>();
