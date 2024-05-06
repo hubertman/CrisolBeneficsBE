@@ -126,6 +126,7 @@ namespace API
             services.AddTransient<IEventoRepository, EventoRepository>();
             services.AddTransient<IOfertaRepository, OfertaRepository>();
             services.AddTransient<ITicketRepository, TicketRepository>();
+            services.AddTransient<IAhorroRepository, AhorroRepository>();
 
             // ----------------------------------------------------------------
             services.AddTransient<HttpClientAuthorizationDelegatingHandler>();
