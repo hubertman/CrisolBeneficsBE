@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using NSwag.Annotations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -42,9 +43,12 @@ namespace API.Controllers
         [AllowAnonymous]
         [HttpGet]
         [Route("Insertar")]
-        public ActionResult PutTicketId(EntityTicket ticket)
+        public ActionResult PutTicketId(
+            string codigoQR, DateTime Fecha_de_generacion, string Estado, DateTime Fecha_de_vencimiento,
+            int Id_Oferta, int Id_Usuario, int Id_Evento
+            )
         {
-            var rest = _ticketRepository.PutTicket(ticket);
+            var rest = _ticketRepository.PutTicket(codigoQR, Fecha_de_generacion, Estado, Fecha_de_vencimiento, Id_Oferta, Id_Usuario, Id_Evento);
             return Json(rest);
         }
     }

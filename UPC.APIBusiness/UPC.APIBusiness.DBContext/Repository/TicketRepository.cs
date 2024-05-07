@@ -57,7 +57,8 @@ namespace DBContext
             return response;
         }
 
-        public EntityBaseResponse PutTicket(EntityTicket ticket1)
+        public EntityBaseResponse PutTicket(string Codigo_QR, DateTime Fecha_de_generacion, string Estado,
+            DateTime Fecha_de_vencimiento, int Id_Oferta, int Id_Usuario, int Id_Evento)
         {
             var response = new EntityBaseResponse();
             try
@@ -67,13 +68,13 @@ namespace DBContext
                     var ticket = new List<EntityTicket>();
                     const string sql = "usp_InsertarTicket";
                     var p = new DynamicParameters();
-                    p.Add(name: "@Codigo_QR", value: ticket1.Codigo_QR, dbType: DbType.String, direction: ParameterDirection.Input);
-                    p.Add(name: "@Fecha_de_generacion", value: ticket1.Fecha_de_generacion, dbType: DbType.Date, direction: ParameterDirection.Input);
-                    p.Add(name: "@Estado", value: ticket1.Estado, dbType: DbType.String, direction: ParameterDirection.Input);
-                    p.Add(name: "@Fecha_de_vencimiento", value: ticket1.Fecha_de_vencimiento, dbType: DbType.Date, direction: ParameterDirection.Input);
-                    p.Add(name: "@Id_Oferta", value: ticket1.Id_Oferta, dbType: DbType.Int32, direction: ParameterDirection.Input);
-                    p.Add(name: "@Id_Usuario", value: ticket1.Id_Usuario, dbType: DbType.Int32, direction: ParameterDirection.Input);
-                    p.Add(name: "@Id_Evento", value: ticket1.Id_Evento, dbType: DbType.Int32, direction: ParameterDirection.Input);
+                    p.Add(name: "@Codigo_QR", value: Codigo_QR, dbType: DbType.String, direction: ParameterDirection.Input);
+                    p.Add(name: "@Fecha_de_generacion", value: Fecha_de_generacion, dbType: DbType.Date, direction: ParameterDirection.Input);
+                    p.Add(name: "@Estado", value: Estado, dbType: DbType.String, direction: ParameterDirection.Input);
+                    p.Add(name: "@Fecha_de_vencimiento", value: Fecha_de_vencimiento, dbType: DbType.Date, direction: ParameterDirection.Input);
+                    p.Add(name: "@Id_Oferta", value: Id_Oferta, dbType: DbType.Int32, direction: ParameterDirection.Input);
+                    p.Add(name: "@Id_Usuario", value: Id_Usuario, dbType: DbType.Int32, direction: ParameterDirection.Input);
+                    p.Add(name: "@Id_Evento", value: Id_Evento, dbType: DbType.Int32, direction: ParameterDirection.Input);
                     ticket = db.Query<EntityTicket>(
                         sql: sql,
                         param: p,

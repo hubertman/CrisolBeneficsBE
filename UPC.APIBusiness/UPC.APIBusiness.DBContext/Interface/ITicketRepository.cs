@@ -10,6 +10,7 @@ namespace UPC.APIBusiness.DBContext.Interface
     public interface ITicketRepository
     {
         EntityBaseResponse GetTicketId(int id);
-        EntityBaseResponse PutTicket(EntityTicket ticket);
+        EntityBaseResponse PutTicket(string CodigoQR, DateTime Fecha_de_generacion, string Estado, DateTime Fecha_de_vencimiento, int Id_Oferta, int Id_Usuario, int Id_Evento);
+
     }
 }
